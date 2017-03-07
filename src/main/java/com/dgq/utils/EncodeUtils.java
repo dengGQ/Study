@@ -12,7 +12,7 @@ import java.net.URLEncoder;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 
 /**
  * 封装各种格式的编码解码工具类.
@@ -83,14 +83,14 @@ public class EncodeUtils {
 	 * Html 转码.
 	 */
 	public static String escapeHtml(String html) {
-		return StringEscapeUtils.escapeHtml4(html);
+		return StringEscapeUtils.escapeHtml(html);
 	}
 
 	/**
 	 * Html 解码.
 	 */
 	public static String unescapeHtml(String htmlEscaped) {
-		return StringEscapeUtils.unescapeHtml4(htmlEscaped);
+		return StringEscapeUtils.unescapeHtml(htmlEscaped);
 	}
 
 	/**

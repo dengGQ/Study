@@ -1,6 +1,5 @@
 package com.dgq.utils;
 
-import java.util.Date;
 
 public class TestSendEmail {
 	static final String userName = "service@ps.cn";

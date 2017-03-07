@@ -1,16 +1,9 @@
 package com.dgq.utils;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import sun.applet.AppletClassLoader;
 
 @Entity
 public class User {
