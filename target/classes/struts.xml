@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	
+	<!-- 默认值是action, 指定需要struts处理的请求的后缀， 多个用逗号“,”隔开-->
+	<constant name="struts.action.extension" value="action, dgq"></constant>
+	
+	<!-- 默认为false, 测试阶段一般为true -->
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<!-- 默认值是false, 配置文件更改是否重新加载 -->
+	<constant name="struts.i18n.reload" value="true"></constant>
+	
+	<!-- 默认值为true, 设置浏览器是否缓存静态内容, 开发阶段最好关闭 -->
+	<constant name="struts.serve.static.browserCache" value="false"></constant>
+</struts>
