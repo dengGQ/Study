@@ -11,14 +11,14 @@ import javax.mail.internet.MimeMessage;
 public class MailUtil {
 	private final Properties props = System.getProperties();
 	private static MailUtil mailUtil = null;
-	private String userName;// 发件人邮箱用户名
-	private String password;// 发件人邮箱密码
-	private String from; // 发件人邮件地址
-	private String to;// 收件人邮件地址
-	private String smtpType;// smtp服务器
-	private String mailTitle;// 邮件标题
-	private String mailContent;// 邮件内容
-
+	private String userName;//
+	private String password;//
+	private String from; //
+	private String to;//
+	private String smtpType;// 
+	private String mailTitle;//
+	private String mailContent;//
+	
 	public static MailUtil getMailUtil(String userName, String password,
 			String to, String mailTile, String content) {
 		if (mailUtil == null) {
@@ -66,7 +66,7 @@ public class MailUtil {
 	}
 	
 	public static void main(String[] args) {
-		MailUtil mailUtil2 = getMailUtil("565820745@qq.com", "dgq1005!@#", "30397807@qq.com", "--", "速回电！");
+		MailUtil mailUtil2 = getMailUtil("565820745@qq.com", "dgq1005!@#", "30397807@qq.com", "--", "閫熷洖鐢碉紒");
 		
 		mailUtil2.sendMail();
 	}

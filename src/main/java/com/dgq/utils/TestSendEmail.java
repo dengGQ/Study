@@ -20,19 +20,19 @@ public class TestSendEmail {
 	}
 
 	public static String getRemarkText(String remark) {//
-		if (remark.indexOf("~cut~img") == -1 && remark.indexOf("~cut~") == -1) {// 老数据
+		if (remark.indexOf("~cut~img") == -1 && remark.indexOf("~cut~") == -1) {
 			return remark;
 		}
 		String[] textOrImg = remark.split("~cut~img");
 		remark = "";
 		for (String content : textOrImg) {
-			if (content.contains("~cut~")) {// 文本
+			if (content.contains("~cut~")) {
 				String[] text = content.split("~cut~");
 				for (String str : text) {
 					if (!str.endsWith(".png") && !str.endsWith(".jpg")
 							&& !str.endsWith(".jpeg") && !str.endsWith(".bmp")
-							&& !str.endsWith(".gif") && !str.equals("")) {// 文字
-						remark += str + "。";
+							&& !str.endsWith(".gif") && !str.equals("")) {
+						remark += str + "asda";
 					}
 				}
 			}

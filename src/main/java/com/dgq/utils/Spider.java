@@ -1,5 +1,7 @@
 package com.dgq.utils;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.dgq.domain.Joke;
+import com.dgq.spider.Task;
 
 public class Spider {
 
@@ -79,7 +82,17 @@ public class Spider {
 		return list;
 	}
 
-	public static void main(String[] args) {
-		Integer a = 3;
+	public static void main(String[] args) throws IOException {
+		
+		
+		
+		Document document = Jsoup.connect("http://bj.jjj.qq.com/").get();
+		
+		Elements urls = document.select("a[href]");
+		for (Element element : urls) {
+			new Task(element.attr("src"));
+		}
+		
+		System.out.println(document);
 	}
 }

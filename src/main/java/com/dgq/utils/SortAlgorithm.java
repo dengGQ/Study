@@ -1,13 +1,15 @@
 package com.dgq.utils;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.lang.ref.SoftReference;
+import java.util.HashMap;
+import java.util.PriorityQueue;
+import java.util.WeakHashMap;
+
 
 public class SortAlgorithm {
 
 	/**
-	 * 二分法 查询有序数列中是否含有指定的数值
+	 * 二分法查找有序数列中是否存在某个数值
 	 * 
 	 * @param num
 	 * @param nums
@@ -64,7 +66,7 @@ public class SortAlgorithm {
 	}
 
 	/**
-	 * 冒泡排序 (单层循环)
+	 * 单层for循环，冒泡排序
 	 * 
 	 * @param nums
 	 */
@@ -82,7 +84,7 @@ public class SortAlgorithm {
 	}
 
 	/**
-	 * 冒泡排序 (双层层循环)
+	 * 双层for循环，冒泡排序
 	 * 
 	 * @param nums
 	 */
@@ -100,7 +102,7 @@ public class SortAlgorithm {
 	}
 
 	/**
-	 * 归并排序
+	 * 归并 排序
 	 * @param args
 	 */
 	public static void mergeSort(int[] nums, int low, int high){
@@ -117,7 +119,7 @@ public class SortAlgorithm {
 		int[] temp = new int[high - low + 1];
 		int i = low, j = mid+1, k = 0;
 		
-		//将较小的数先移入临时数组
+		//灏嗚緝灏忕殑鏁板厛绉诲叆涓存椂鏁扮粍
 		while(i <= mid && j <= high){
 			if(nums[i] < nums[j]){
 				temp[k++] = nums[i++];
@@ -126,11 +128,11 @@ public class SortAlgorithm {
 			}
 		}
 		
-		//将左边剩余的数移入数组
+		//灏嗗乏杈瑰墿浣欑殑鏁扮Щ鍏ユ暟缁�
 		while(i <= mid){
 			temp[k++] = nums[i++];
 		}
-		//将右边的数移入数组
+		//灏嗗彸杈圭殑鏁扮Щ鍏ユ暟缁�
 		while(j <= high){
 			temp[k++] = nums[j++];
 		}
@@ -139,6 +141,35 @@ public class SortAlgorithm {
 			nums[k2 + low] = temp[k2];
 		}
 	
+	}
+	
+	/**
+	 * 基于优先队列【priorityQueue】的排序，默认是按小到大，从大到小，需要实现comparator接口的compareTo方法:
+	 * PriorityQueue<Integer> queue = new PriorityQueue<Integer>(new Comparator<Integer>() {
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				return o2 - o1;
+			}
+		});
+	 * @param nums
+	 */
+	public static void sortByPriorityQueue(int nums[]){
+		
+		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
+		
+		Object o = new Object();
+		
+		SoftReference<Object> reference = new SoftReference<>(o);
+		
+		for (int i = 0; i < nums.length; i++) {
+			queue.add(nums[i]);
+		}
+		
+		int i = 0;
+		while(!queue.isEmpty()){
+			
+			nums[i++] = queue.poll();
+		}
 	}
 
 	public static void main(String[] args) {
